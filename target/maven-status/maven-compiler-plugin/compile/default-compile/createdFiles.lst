@@ -6,6 +6,7 @@ co\usa\mintic\ciclo3\ciclo3\Ciclo3Application.class
 co\usa\mintic\ciclo3\ciclo3\service\MessageService.class
 co\usa\mintic\ciclo3\ciclo3\web\MessageController.class
 co\usa\mintic\ciclo3\ciclo3\web\ReservationController.class
+co\usa\mintic\ciclo3\ciclo3\security\SecurityAdapter.class
 co\usa\mintic\ciclo3\ciclo3\service\ReservationService.class
 co\usa\mintic\ciclo3\ciclo3\repository\ReservationRepository.class
 co\usa\mintic\ciclo3\ciclo3\repository\GamaRepository.class
@@ -20,6 +21,7 @@ co\usa\mintic\ciclo3\ciclo3\model\Message.class
 co\usa\mintic\ciclo3\ciclo3\model\Score.class
 co\usa\mintic\ciclo3\ciclo3\model\Gama.class
 co\usa\mintic\ciclo3\ciclo3\model\Car.class
+co\usa\mintic\ciclo3\ciclo3\web\UserController.class
 co\usa\mintic\ciclo3\ciclo3\repository\ClientRepository.class
 co\usa\mintic\ciclo3\ciclo3\repository\crud\MessageCrudRepository.class
 co\usa\mintic\ciclo3\ciclo3\repository\ScoreRepository.class

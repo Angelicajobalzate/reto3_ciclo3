@@ -26,11 +26,15 @@ public class ReservationRepository {
         return (List<Reservation>) reservationCrudRepository.findAll();
     }
     
-    public Optional<Reservation> getReservation(int idRsv){
-        return reservationCrudRepository.findById(idRsv);      
+    public Optional<Reservation> getReservation(int idReservation){
+        return reservationCrudRepository.findById(idReservation);      
     }
     
     public Reservation save(Reservation r){
         return reservationCrudRepository.save(r);
+    }
+    
+    public void delete(Reservation r){
+        reservationCrudRepository.delete(r);
     }
 }

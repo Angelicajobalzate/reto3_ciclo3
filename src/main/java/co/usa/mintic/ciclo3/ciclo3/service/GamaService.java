@@ -18,32 +18,53 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GamaService {
-    
+
     @Autowired
     private GamaRepository gamaRepository;
-    
-    public List<Gama> getAll(){
+
+    public List<Gama> getAll() {
         return gamaRepository.getAll();
     }
-    
-    public Optional<Gama> getGama(int idGama){
+
+    public Optional<Gama> getGama(int idGama) {
         return gamaRepository.getGama(idGama);
     }
-    
-    public Gama save(Gama g){
-        if(g.getIdGama()==null){
+
+    public Gama save(Gama g) {
+        if (g.getIdGama() == null) {
             return gamaRepository.save(g);
-            
-        }else{
-            Optional<Gama> gaux=gamaRepository.getGama(g.getIdGama());
-                if(!gaux.isPresent()){
-                   return gamaRepository.save(g); 
-                }else{
+
+        } else {
+            Optional<Gama> gaux = gamaRepository.getGama(g.getIdGama());
+            if (!gaux.isPresent()) {
+                return gamaRepository.save(g);
+            } else {
                 return g;
-                }                
-          }  
-        
+            }
+        }
+
     }
+
+    public Gama update(Gama g) {
+        if (g.getIdGama() != null) {
+            Optional<Gama> p = gamaRepository.getGama(g.getIdGama());
+            if (p.isPresent()) {
+                if (g.getName() != null) {
+                    p.get().setName(g.getName());
+                }
+                return gamaRepository.save(p.get());
+            }
+        }
+        return g;
+    }   
     
-    
+    public boolean deleteGama(int id){
+        Optional<Gama> c=getGama(id);
+        if(c.isPresent()){
+            gamaRepository.delete(c.get());
+            return true;
+    }
+    return false;
+    }
+
 }

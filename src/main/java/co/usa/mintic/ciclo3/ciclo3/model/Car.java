@@ -31,50 +31,28 @@ public class Car implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-    /*
-    Esta es la llave primaria de Car
-    */
+    
     private Integer idCar;
-    /*
-    Esta es la variable del atributo name de Car
-    */  
     private String name;
-     /*
-    Esta es la variable del atributo brand de Car
-    */  
     private String brand;
-     /*
-    Esta es la variable del atributo year de Car
-    */  
     private Integer year;
-     /*
-    Esta es la variable del atributo description de Car
-    */  
     private String description;
     
     @ManyToOne
         @JoinColumn(name = "idGama")
         @JsonIgnoreProperties("cars")
-    
-    /*
-    Esta es la variable que representa la tabla Gama
-    */  
+       
     private Gama gama;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties({"car", "client"})
     
     
-     /*
-    Esta es la variable que representa la tabla Messages
-    */  
     private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties("car")
-    /**
-     *  Esta es la variable que representa la tabla Reservations
-     */
+    
     private List<Reservation> reservations;
 
     public Integer getIdCar() {
@@ -140,7 +118,6 @@ public class Car implements Serializable{
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-      
-        
+             
         
 }
