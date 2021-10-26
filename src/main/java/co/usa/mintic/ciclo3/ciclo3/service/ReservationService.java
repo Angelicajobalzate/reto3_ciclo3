@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.usa.mintic.ciclo3.ciclo3.service;
 
 import co.usa.mintic.ciclo3.ciclo3.model.Reservation;
-import co.usa.mintic.ciclo3.ciclo3.repository.ReservationRepository;
+import co.usa.mintic.ciclo3.ciclo3.repository.RsvtRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,43 +16,65 @@ import org.springframework.stereotype.Service;
 public class ReservationService {
     
    @Autowired
-   private ReservationRepository reservationRepository; 
+   /**
+    * Instancia clase RsvtRepository
+    */
+   private RsvtRepository reservationRepository; 
    
+   /**
+    * Creación lista Reservation
+    * @return repositorio de la la clase reservacion
+    */
    public List<Reservation> getAll(){
        return reservationRepository.getAll();
    }
    
+   /**
+    * Creación de la clase Optional
+    * @param idRsv
+    * @return idRsv
+    */
    public Optional<Reservation> getReservation(int idRsv){
        return reservationRepository.getReservation(idRsv);
    }
    
-   public Reservation save(Reservation r){
-       if(r.getIdReservation()==null){
-           return reservationRepository.save(r);          
+   /**
+    * Creación clase Reservation para grabar
+    * @param reserva
+    * @return reserva nuerva
+    */
+   public Reservation save(Reservation reserva){
+       if(reserva.getIdReservation()==null){
+           return reservationRepository.save(reserva);          
        }else{
-           Optional<Reservation> raux=reservationRepository.getReservation(r.getIdReservation());
+           Optional<Reservation> raux=reservationRepository.getReservation(reserva.getIdReservation());
            if(!raux.isPresent()){
-               return reservationRepository.save(r);
+               return reservationRepository.save(reserva);
            }else{
-               return r;
+               return reserva;
            }
        }
    }
    
-    public Reservation update(Reservation r) {
-        if (r.getIdReservation() != null) {
-            Optional<Reservation> p = reservationRepository.getReservation(r.getIdReservation());
+   /**
+    * Creación clase reservation para actualizar
+    * @param reserva
+    * @return reserva modificada
+    */
+    public Reservation update(Reservation reserva) {
+        if (reserva.getIdReservation() != null) {
+            Optional<Reservation> p = reservationRepository.getReservation(reserva.getIdReservation());
             if (p.isPresent()) {
-                if (r.getStartDate()!= null) {
-                    p.get().setStartDate(r.getStartDate());
+                if (reserva.getStartDate()!= null) {
+                    p.get().setStartDate(reserva.getStartDate());
                 }
-                if(r.getDevolutionDate()!=null){
-                    p.get().setDevolutionDate(r.getDevolutionDate());
+                if(reserva.getDevolutionDate()!=null){
+                    p.get().setDevolutionDate(reserva.getDevolutionDate());
                 }
                 return reservationRepository.save(p.get());
             }
         }
-        return r;
+        return reserva;
     }   
     public boolean deleteReservation(int id){
         Optional<Reservation> r=getReservation(id);

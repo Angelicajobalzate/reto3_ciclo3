@@ -1,5 +1,6 @@
 co\usa\mintic\ciclo3\ciclo3\service\GamaService.class
 co\usa\mintic\ciclo3\ciclo3\web\ScoreController.class
+co\usa\mintic\ciclo3\ciclo3\repository\RsvtRepository.class
 co\usa\mintic\ciclo3\ciclo3\model\Client.class
 co\usa\mintic\ciclo3\ciclo3\repository\CarRepository.class
 co\usa\mintic\ciclo3\ciclo3\Ciclo3Application.class
@@ -8,7 +9,6 @@ co\usa\mintic\ciclo3\ciclo3\web\MessageController.class
 co\usa\mintic\ciclo3\ciclo3\web\ReservationController.class
 co\usa\mintic\ciclo3\ciclo3\security\SecurityAdapter.class
 co\usa\mintic\ciclo3\ciclo3\service\ReservationService.class
-co\usa\mintic\ciclo3\ciclo3\repository\ReservationRepository.class
 co\usa\mintic\ciclo3\ciclo3\repository\GamaRepository.class
 co\usa\mintic\ciclo3\ciclo3\service\ClientService.class
 co\usa\mintic\ciclo3\ciclo3\web\CarController.class

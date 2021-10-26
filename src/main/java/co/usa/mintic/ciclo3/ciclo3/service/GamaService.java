@@ -47,11 +47,14 @@ public class GamaService {
 
     public Gama update(Gama g) {
         if (g.getIdGama() != null) {
-            Optional<Gama> p = gamaRepository.getGama(g.getIdGama());
+            Optional<Gama>p=gamaRepository.getGama(g.getIdGama());
             if (p.isPresent()) {
                 if (g.getName() != null) {
-                    p.get().setName(g.getName());
+                    p.get().setName(g.getName());                
                 }
+                if(g.getDescription()!=null){
+                    p.get().setDescription(g.getDescription());
+                }              
                 return gamaRepository.save(p.get());
             }
         }
